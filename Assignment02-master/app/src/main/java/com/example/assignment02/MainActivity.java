@@ -59,6 +59,18 @@ public class MainActivity extends AppCompatActivity {
                                                             "• ابن حزم"))
 
                                     .commit();
+
+                        } else if (item.getItemId() == R.id.other) {
+
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.frame_container,
+
+                                            BottomNFragment.newInstance(
+                                                    "اللهم صلِّ وسلم على رسول الله",
+
+                                                    "واعلموا أنه ما من عبدٍ مسلمٍ أكثر الصلاة على النبي محمد ﷺ إلا نوّر الله قلبه، وغفر ذنبه، وشرح صدره، ويسَّرَ أمره.\n\n• ابن الجوزيّ."))
+
+                                    .commit();
                         }
 
                         return true;
