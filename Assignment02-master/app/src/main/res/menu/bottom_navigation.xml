@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="الرئيسية"
+        android:id="@+id/home"
+        android:icon="@drawable/baseline_home_24"
+        />
+    <item
+        android:title="معلومات"
+        android:id="@+id/form"
+        android:icon="@drawable/baseline_local_library_24"
+        />
+    <item
+        android:title="المزيد"
+        android:id="@+id/other"
+        android:icon="@drawable/baseline_other_houses_24"
+        />
+</menu>
