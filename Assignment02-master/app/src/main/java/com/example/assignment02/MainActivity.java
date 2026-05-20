@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.assignment02.Fragments.BottomNFragment;
@@ -27,6 +29,18 @@ public class MainActivity extends AppCompatActivity
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.tool);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,
+                binding.drawerLayout,
+                binding.tool,
+                R.string.open_drawer,
+                R.string.close_drawer
+        );
+
+        binding.drawerLayout.addDrawerListener(toggle);
+
+        toggle.syncState();
 
         binding.tool.setTitleTextColor(getResources().getColor(R.color.white));
         getWindow().setStatusBarColor(getResources().getColor(R.color.black));
@@ -95,6 +109,8 @@ public class MainActivity extends AppCompatActivity
                     .setNegativeButton("لا", null)
                     .show();
         }
+
+        binding.drawerLayout.closeDrawer(GravityCompat.START);
 
         return false;
     }
