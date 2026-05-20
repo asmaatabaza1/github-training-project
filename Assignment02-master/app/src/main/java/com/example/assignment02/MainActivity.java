@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -11,8 +12,10 @@ import com.example.assignment02.Fragments.BottomNFragment;
 import com.example.assignment02.Fragments.MainFragment;
 import com.example.assignment02.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     ActivityMainBinding binding;
 
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("أذكاري");
 
         loadFragment(new MainFragment());
+
+        binding.navigationView.setNavigationItemSelectedListener(this);
 
         binding.bottom.setOnItemSelectedListener(
                 new NavigationBarView.OnItemSelectedListener() {
@@ -76,6 +81,22 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.LogOut) {
+
+            new AlertDialog.Builder(this)
+                    .setTitle("تأكيد الخروج")
+                    .setMessage("هل تريد الخروج من التطبيق؟")
+                    .setPositiveButton("نعم", (dialog, which) -> finishAffinity())
+                    .setNegativeButton("لا", null)
+                    .show();
+        }
+
+        return false;
     }
 
     private void loadFragment(Fragment fragment) {
