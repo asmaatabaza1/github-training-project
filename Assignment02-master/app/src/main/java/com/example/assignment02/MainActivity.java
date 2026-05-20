@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.assignment02.Fragments.BottomNFragment;
+import com.example.assignment02.Fragments.DrawerFragment;
 import com.example.assignment02.Fragments.MainFragment;
 import com.example.assignment02.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationBarView;
@@ -100,7 +101,25 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId() == R.id.LogOut) {
+        if (item.getItemId() == R.id.sun) {
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frame_container,
+                            DrawerFragment.newInstance(
+                                    "أذكار الصباح",
+                                    "• قراءة آية الكرسي"))
+                    .commit();
+
+        } else if (item.getItemId() == R.id.ligt) {
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frame_container,
+                            DrawerFragment.newInstance(
+                                    "أذكار المساء",
+                                    "• قراءة آية الكرسي"))
+                    .commit();
+
+        } else if (item.getItemId() == R.id.LogOut) {
 
             new AlertDialog.Builder(this)
                     .setTitle("تأكيد الخروج")
