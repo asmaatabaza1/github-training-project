@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="#2F2D2D"
+    android:background="#2f2d2def"
     android:backgroundTint="#2F2D2D"
-    android:paddingHorizontal="16dp">
+    android:paddingHorizontal="15dp">
 
     <ImageView
         android:id="@+id/imageView"
@@ -25,8 +25,8 @@
         android:id="@+id/fullname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="A.T"
-        android:textSize="24sp"
+        android:text="Asmaa.a.T"
+        android:textSize="27sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
