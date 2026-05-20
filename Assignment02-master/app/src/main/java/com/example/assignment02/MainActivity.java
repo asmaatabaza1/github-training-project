@@ -129,9 +129,28 @@ public class MainActivity extends AppCompatActivity
                     .show();
         }
 
+        binding.navigationView.setCheckedItem(item.getItemId());
         binding.drawerLayout.closeDrawer(GravityCompat.START);
 
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+
+            binding.drawerLayout.closeDrawer(GravityCompat.START);
+
+        } else if (binding.bottom.getSelectedItemId() == R.id.form
+                || binding.bottom.getSelectedItemId() == R.id.other) {
+
+            binding.bottom.setSelectedItemId(R.id.home);
+
+        } else {
+
+            super.onBackPressed();
+        }
     }
 
     private void loadFragment(Fragment fragment) {
